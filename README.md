@@ -10,7 +10,16 @@ Add this to your `.pre-commit-config.yaml`
     rev: 1.0.1  # Use the ref you want to point at
     hooks:
     -   id: magento-phpcs
+        args: ["php=php7.4", "--autofix=true"]
     # -   id: ...
 ```
 
 ### Hooks available
+
+#### `magento-phpcs`
+PHP CodeSniffer is able to fix many errors and warnings automatically.
+You can configure this with the following commandline options:
+  - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
+  - `--autofix=true` - Automatically fixes encountered violations as possible. Defaults false.
+  - `--standard=Magento2` - The name or path of the coding standard to use. Defaults Magento2.
+
