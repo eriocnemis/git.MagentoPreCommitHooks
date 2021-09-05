@@ -1,1 +1,1 @@
-# git.magento_pre_commit_hooks
+# Magento Pre-Commit Hooks
