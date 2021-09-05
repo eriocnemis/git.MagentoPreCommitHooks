@@ -23,8 +23,8 @@ You can configure this with the following commandline options:
   - `--autofix=true` - Automatically fixes encountered violations as possible. Defaults false.
   - `--standard=Magento2` - The name or path of the coding standard to use. Defaults Magento2.
 
-#### `magento-phpcs`
-PHP CodeSniffer is able to fix many errors and warnings automatically.
+#### `magento-phpstan`
+PHPStan is a static analysis system for PHP projects. It finds bugs in your codebase by inspecting the source files.
 You can configure this with the following commandline options:
   - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
   - `--level=1` - Specifies the rule level to run. Defaults max.
