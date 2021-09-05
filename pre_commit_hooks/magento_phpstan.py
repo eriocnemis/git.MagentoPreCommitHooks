@@ -37,7 +37,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     )
     parser.add_argument(
         '-a', '--autoload-file', default = False, dest = 'autoload',
-        help = 'the path to a custom autoloader'
+        help = 'specifies the path to a custom autoloader'
     )
     parser.add_argument(
         '-c', '--configuration', default = False, dest = 'config',

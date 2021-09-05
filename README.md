@@ -23,3 +23,10 @@ You can configure this with the following commandline options:
   - `--autofix=true` - Automatically fixes encountered violations as possible. Defaults false.
   - `--standard=Magento2` - The name or path of the coding standard to use. Defaults Magento2.
 
+#### `magento-phpcs`
+PHP CodeSniffer is able to fix many errors and warnings automatically.
+You can configure this with the following commandline options:
+  - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
+  - `--level=1` - Specifies the rule level to run. Defaults max.
+  - `--autoload-file=dev/tests/api-functional/framework/autoload.php` - Specifies the path to a custom autoloader.
+  - `--configuration=dev/tests/phpstan.neon` - Specifies the path to a configuration file.
