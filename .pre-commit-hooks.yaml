@@ -11,14 +11,14 @@
     types: [php]
 -   id: magento-webapi-rest-phpunit
     name: REST API PHPUnit test
-    entry: magento_webapi_phpunit
+    entry: magento-webapi-rest-phpunit
     language: python
     pass_filenames: false
     always_run: true
     args: ["-c=dev/tests/api-functional/phpunit_rest.xml"]
 -   id: magento-webapi-soap-phpunit
     name: SOAP API PHPUnit test
-    entry: magento_webapi_phpunit
+    entry: magento-webapi-soap-phpunit
     language: python
     pass_filenames: false
     always_run: true
