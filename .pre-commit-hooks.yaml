@@ -1,0 +1,6 @@
+-   id: magento-phpstan
+    name: PHPStan
+    description: PHPStan is a static analysis system for PHP projects. It finds bugs in your codebase by inspecting the source files.
+    entry: magento-phpstan
+    language: python
+    types: [php]
