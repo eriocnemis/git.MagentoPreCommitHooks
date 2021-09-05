@@ -13,9 +13,6 @@ from typing import Optional
 from typing import Sequence
 from pathlib import Path
 
-# phpstan path relative magento root
-PHPSTANPATH = 'vendor/bin/phpstan'
-
 # magento module relative path patern
 PATHPATERN = '**/app/code/*/*'
 
@@ -56,19 +53,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         # path to the root of magento
         magento = module.parent.parent.parent.parent
         # path to the phpstan
-        phpstan = magento / PHPSTANPATH
+        exe = magento / 'vendor/bin/phpstan'
 
-        if phpstan.is_file():
-            command = [
-                args.php,
-                f'{magento}/{PHPSTANPATH}',
-                'analyse',
-                '--no-progress',
-                '-l',
-                args.level,
-                '--error-format',
-                args.errorformat
-            ]
+        if exe.is_file():
+            command = [args.php, f'{exe}', 'analyse', '--no-progress', '-l',  args.level, '--error-format', args.errorformat]
 
             if args.autoload:
                 autoload = magento / args.autoload.strip('/')
