@@ -6,7 +6,7 @@ Magento Pre-Commit Hooks are used for identifying simple issues before submissio
 Add this to your `.pre-commit-config.yaml`
 
 ```yaml
--   repo: https://github.com/eriocnemis/git.magento_pre_commit_hooks
+-   repo: https://github.com/eriocnemis/git.MagentoPreCommitHooks
     rev: 1.0.1  # Use the ref you want to point at
     hooks:
     -   id: magento-phpcs
