@@ -3,6 +3,11 @@
     description: PHP CodeSniffer is able to fix many errors and warnings automatically.
     entry: magento-phpcs
     language: python
+-   id: magento-phpmd
+    name: PHP Mess Detector
+    entry: magento-phpmd
+    language: python
+    types: [php]
 -   id: magento-phpstan
     name: PHP Static Analysis Tool
     description: PHPStan is a static analysis system for PHP projects. It finds bugs in your codebase by inspecting the source files.
