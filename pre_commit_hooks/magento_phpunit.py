@@ -7,9 +7,6 @@ from typing import Optional
 from typing import Sequence
 from pathlib import Path
 
-# magento module relative path patern
-PATHPATERN = '**/app/code/*/*'
-
 def main(argv: Optional[Sequence[str]] = None) -> int:
     # return flag
     retval = 0
@@ -25,14 +22,18 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         '-c', '--configuration', dest = 'config',
         help = 'specifies the path to a configuration file'
     )
+    parser.add_argument(
+        '--type', default = 'Unit', dest = 'type',
+        help = 'specifies the part of path to a tested files'
+    )
     args = parser.parse_args(argv)
 
-    if module.match(PATHPATERN):
+    if module.match('**/app/code/*/*'):
         # path to the root of magento
         magento = module.parent.parent.parent.parent
         # path to the phpunit
         exe = magento / 'vendor/bin/phpunit'
-        test = module / 'Test/Api/'
+        test = module / f'Test/{args.type}/'
 
         if test.is_dir():
             if exe.is_file():

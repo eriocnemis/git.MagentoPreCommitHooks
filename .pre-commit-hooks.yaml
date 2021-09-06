@@ -9,17 +9,24 @@
     entry: magento-phpstan
     language: python
     types: [php]
+-   id: magento-phpunit
+    name: PHPUnit test
+    entry: magento-phpunit
+    language: python
+    pass_filenames: false
+    always_run: true
+    args: ["-c=dev/tests/unit/phpunit.xml"]
 -   id: magento-webapi-rest-phpunit
     name: REST API PHPUnit test
     entry: magento-webapi-rest-phpunit
     language: python
     pass_filenames: false
     always_run: true
-    args: ["-c=dev/tests/api-functional/phpunit_rest.xml"]
+    args: ["--type=Api", "-c=dev/tests/api-functional/phpunit_rest.xml"]
 -   id: magento-webapi-soap-phpunit
     name: SOAP API PHPUnit test
     entry: magento-webapi-soap-phpunit
     language: python
     pass_filenames: false
     always_run: true
-    args: ["-c=dev/tests/api-functional/phpunit_soap.xml"]
+    args: ["--type=Api", "-c=dev/tests/api-functional/phpunit_soap.xml"]
