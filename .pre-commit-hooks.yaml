@@ -1,19 +1,30 @@
+# PHP Code Sniffer
 -   id: magento-phpcs
     name: PHP Code Sniffer
     description: PHP CodeSniffer is able to fix many errors and warnings automatically.
     entry: magento-phpcs
     language: python
+# PHP Mess Detector
 -   id: magento-phpmd
     name: PHP Mess Detector
     entry: magento-phpmd
     language: python
     types: [php]
+# PHP Static Analysis Tool
 -   id: magento-phpstan
     name: PHP Static Analysis Tool
     description: PHPStan is a static analysis system for PHP projects. It finds bugs in your codebase by inspecting the source files.
     entry: magento-phpstan
     language: python
     types: [php]
+# PHP Copy/Paste Detector
+-   id: magento-phpcpd
+    name: PHP Copy/Paste Detector
+    entry: magento-phpcpd
+    language: python
+    pass_filenames: false
+    always_run: true
+# PHPUnit test
 -   id: magento-phpunit
     name: PHPUnit test
     entry: magento-phpunit
@@ -21,6 +32,7 @@
     pass_filenames: false
     always_run: true
     args: ["-c=dev/tests/unit/phpunit.xml"]
+# REST API PHPUnit test
 -   id: magento-webapi-rest-phpunit
     name: REST API PHPUnit test
     entry: magento-webapi-rest-phpunit
@@ -28,6 +40,7 @@
     pass_filenames: false
     always_run: true
     args: ["--type=Api", "-c=dev/tests/api-functional/phpunit_rest.xml"]
+# SOAP API PHPUnit test
 -   id: magento-webapi-soap-phpunit
     name: SOAP API PHPUnit test
     entry: magento-webapi-soap-phpunit
