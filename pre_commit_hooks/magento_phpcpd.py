@@ -18,6 +18,10 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         '--php', default = 'php', dest = 'php',
         help = 'alias or full path to the executable file of PHP'
     )
+    parser.add_argument(
+        '--min-lines', default = '5', dest = 'lines',
+        help = 'specify a minimum number of identical lines'
+    )
     args = parser.parse_args(argv)
 
     if module.match('**/app/code/*/*'):
@@ -28,7 +32,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
 
         if module.is_dir():
             if exe.is_file():
-                command = [args.php, f'{exe}', '--min-lines', '5', str(module)]
+                command = [args.php, f'{exe}', '--min-lines', args.lines, str(module)]
                 process = subprocess.run(command, capture_output=True, universal_newlines=True)
                 if process.returncode:
                     print(f'{process.stdout}')

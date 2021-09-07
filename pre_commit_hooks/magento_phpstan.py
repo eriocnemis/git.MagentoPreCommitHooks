@@ -1,20 +1,11 @@
 #!/usr/bin/env python3
-"""
- A pre-commit hook that, when passed one or more php files, using PHPStan will finds
-bugs in your PHP code without writing tests. PHPStan catches whole classes of bugs
-even before you write tests for the code. It moves PHP closer to compiled languages
-in the sense that the correctness of each line of the code can be checked before you
-run the actual line.
-"""
+
 import argparse
 import subprocess
 
 from typing import Optional
 from typing import Sequence
 from pathlib import Path
-
-# magento module relative path patern
-PATHPATERN = '**/app/code/*/*'
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     # return flag
@@ -32,10 +23,6 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         help = 'specifies the rule level to run'
     )
     parser.add_argument(
-        '--error-format', default = 'raw', dest = 'errorformat',
-        help = 'specifies a custom error formatter'
-    )
-    parser.add_argument(
         '-a', '--autoload-file', default = False, dest = 'autoload',
         help = 'specifies the path to a custom autoloader'
     )
@@ -49,14 +36,14 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    if module.match(PATHPATERN):
+    if module.match('**/app/code/*/*'):
         # path to the root of magento
         magento = module.parent.parent.parent.parent
         # path to the phpstan
         exe = magento / 'vendor/bin/phpstan'
 
         if exe.is_file():
-            command = [args.php, f'{exe}', 'analyse', '--no-progress', '-l',  args.level, '--error-format', args.errorformat]
+            command = [args.php, f'{exe}', 'analyse', '--no-progress', '-l',  args.level, '--error-format', 'raw']
 
             if args.autoload:
                 autoload = magento / args.autoload.strip('/')

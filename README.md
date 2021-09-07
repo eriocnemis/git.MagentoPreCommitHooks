@@ -7,29 +7,60 @@ Add this to your `.pre-commit-config.yaml`
 
 ```yaml
 -   repo: https://github.com/eriocnemis/git.MagentoPreCommitHooks
-    rev: 1.0.1  # Use the ref you want to point at
+    rev: 1.0.6  # Use the ref you want to point at
     hooks:
     -   id: magento-phpcs
         args: ["php=php7.4", "--autofix=true"]
+    -   id: magento-phpmd
     # -   id: ...
 ```
 
 ### Hooks available
 
 #### `magento-phpcs`
-PHP CodeSniffer is able to fix many errors and warnings automatically.
+PHP Code Sniffer provides the mechanism of checking code compliance with specific coding standard.
 You can configure this with the following commandline options:
   - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
   - `--autofix=true` - Automatically fixes encountered violations as possible. Defaults false.
   - `--standard=Magento2` - The name or path of the coding standard to use. Defaults Magento2.
 
+#### `magento-phpmd`
+PHP Mess Detector provides a diverse set of pre defined rules to detect code smells and possible errors within the analyzed source code.
+You can configure this with the following commandline options:
+  - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
+  - `--rule-sets=codesize,cleancode` - Set of rules which will be applied against the source under test. Defaults codesize,cleancode,design.
+
 #### `magento-phpstan`
-PHPStan is a static analysis system for PHP projects. It finds bugs in your codebase by inspecting the source files.
+PHP Static Analysis Tool finds bugs in your codebase by inspecting the source files.
 You can configure this with the following commandline options:
   - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
   - `--level=1` - Specifies the rule level to run. Defaults max.
   - `--autoload-file=dev/tests/api-functional/framework/autoload.php` - Specifies the path to a custom autoloader.
   - `--configuration=dev/tests/phpstan.neon` - Specifies the path to a configuration file.
+
+#### `magento-phpcpd`
+PHP Copy Paste Detector finds duplicate code in PHP files.
+You can configure this with the following commandline options:
+  - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
+  - `--min-lines=12` - Specify a minimum number of identical lines. Defaults 5.
+
+#### `magento-phpunit`
+Automatically run PHPUnit tests.
+You can configure this with the following commandline options:
+  - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
+  - `-c=dev/tests/unit/phpunit.xml` - Specifies the path to a configuration file.
+
+#### `magento-webapi-rest-phpunit`
+Automatically run REST API PHPUnit tests.
+You can configure this with the following commandline options:
+  - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
+  - `-c=dev/tests/api-functional/phpunit_rest.xml` - Specifies the path to a configuration file.
+
+#### `magento-webapi-soap-phpunit`
+Automatically run SOAP API PHPUnit tests.
+You can configure this with the following commandline options:
+  - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
+  - `-c=dev/tests/api-functional/phpunit_soap.xml` - Specifies the path to a configuration file.
 
 ## License
 
