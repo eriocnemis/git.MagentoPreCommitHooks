@@ -28,7 +28,7 @@
     always_run: true
 # PHPUnit test
 -   id: magento-phpunit
-    name: PHPUnit test
+    name: PHP Unit test
     description: Automatically run PHPUnit tests.
     entry: magento-phpunit
     language: python
@@ -37,7 +37,7 @@
     args: ["-c=dev/tests/unit/phpunit.xml"]
 # REST API PHPUnit test
 -   id: magento-webapi-rest-phpunit
-    name: REST API PHPUnit test
+    name: REST API PHP Unit test
     description: Automatically run REST API PHPUnit tests.
     entry: magento-webapi-rest-phpunit
     language: python
@@ -46,7 +46,7 @@
     args: ["--type=Api", "-c=dev/tests/api-functional/phpunit_rest.xml"]
 # SOAP API PHPUnit test
 -   id: magento-webapi-soap-phpunit
-    name: SOAP API PHPUnit test
+    name: SOAP API PHP Unit test
     description: Automatically run SOAP API PHPUnit tests.
     entry: magento-webapi-soap-phpunit
     language: python
