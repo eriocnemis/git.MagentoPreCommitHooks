@@ -7,10 +7,10 @@ Add this to your `.pre-commit-config.yaml`
 
 ```yaml
 -   repo: https://github.com/eriocnemis/git.MagentoPreCommitHooks
-    rev: 1.0.6  # Use the ref you want to point at
+    rev: 1.0.8  # Use the ref you want to point at
     hooks:
     -   id: magento-phpcs
-        args: ["php=php7.4", "--autofix=true"]
+        args: ["php=php7.4", "--autofix"]
     -   id: magento-phpmd
     # -   id: ...
 ```
@@ -21,7 +21,7 @@ Add this to your `.pre-commit-config.yaml`
 PHP Code Sniffer provides the mechanism of checking code compliance with specific coding standard.
 You can configure this with the following commandline options:
   - `--php=php7.4` - Alias or full path to the executable file of PHP. Defaults php.
-  - `--autofix=true` - Automatically fixes encountered violations as possible. Defaults false.
+  - `--autofix` - Automatically fixes encountered violations as possible.
   - `--standard=Magento2` - The name or path of the coding standard to use. Defaults Magento2.
 
 #### `magento-phpmd`

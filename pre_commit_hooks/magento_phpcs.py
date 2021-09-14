@@ -7,9 +7,6 @@ from typing import Optional
 from typing import Sequence
 from pathlib import Path
 
-# magento module relative path patern
-PATHPATERN = '**/app/code/*/*'
-
 def main(argv: Optional[Sequence[str]] = None) -> int:
     # return flag
     retval = 0
@@ -26,7 +23,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
         help = 'the name or path of the coding standard to use'
     )
     parser.add_argument(
-        '--autofix', default = False, dest='autofix',
+        '--autofix', action='store_true', dest='autofix',
         help='automatically fixes encountered violations as possible',
     )
     parser.add_argument(
@@ -35,7 +32,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    if module.match(PATHPATERN):
+    if module.match('**/app/code/*/*'):
         # path to the root of magento
         magento = module.parent.parent.parent.parent
         # path to the phpcs
