@@ -1,3 +1,11 @@
+# Check Xml using Xsd
+-   id: magento-xml
+    name: Check Xml using Xsd
+    description: Validates the XML file against the specified XSD file.
+    entry: magento-xml
+    language: python
+    types: [xml]
+    additional_dependencies: [lxml]
 # PHP Code Sniffer
 -   id: magento-phpcs
     name: PHP Code Sniffer
