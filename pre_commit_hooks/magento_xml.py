@@ -52,7 +52,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument(
         'filenames', nargs='*',
-        help = 'PHP filenames to check'
+        help = 'Xml filenames to check'
     )
     args = parser.parse_args(argv)
 
