@@ -35,7 +35,7 @@ def getUrn(filename: str) -> str:
         for attr in root.attrib:
             if 'noNamespaceSchemaLocation' in attr:
                 return root.attrib.get(attr)
-        raise ValueError('Cannot parse %r - not a attribute xsi:noNamespaceSchemaLocation' % filename)
+        return ''
     raise ValueError('Cannot open a file %r' % filename)
 
 """
@@ -95,14 +95,15 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
                 schemas = getSchemas(dictionary, magento)
                 for filename in args.filenames:
                     urn = getUrn(filename)
-                    if urn and schemas[urn]:
-                        urn = magento / schemas[urn]
-                        result = validate(filename, urn, schemas)
-                        if not result:
+                    if urn:
+                        if schemas[urn]:
+                            urn = magento / schemas[urn]
+                            result = validate(filename, urn, schemas)
+                            if not result:
+                                retval = 1
+                        else:
+                            print('schema not found')
                             retval = 1
-                    else:
-                        print('urn not found')
-                        retval = 1
             except etree.LxmlError as exc:
                 print(f'{filename}: Failed to xml parse ({exc})')
                 retval = 1
